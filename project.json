@@ -1,0 +1,264 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "Various animated pixel art wallpapers created by Mark Ferrari, based on http://www.effectgames.com/demos/worlds/\r\n\r\nThis is a modified version of https://steamcommunity.com/sharedfiles/filedetails/?id=2106625278\r\nwith a few changes and added features.\r\n\r\nFeatures:\r\n- Wallpaper scales to screen resolution\r\n- The light in the environment changes based on time of day\r\n- Time can be accelerated to cycle through day/night faster\r\n- Time can be set to a fixed hour\r\n- Wallpaper can change based on current month\r\n- Wallpaper can change randomly base on a set interval\r\n- Choose a fixed wallpaper to display\r\n- Set the FPS limit to keep performance impact low\r\n- Change the speed of the animations\r\n- Optional audio loops with adjustable volume\r\n- Switch between smooth or classic color blending",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"audio_enabled" : 
+			{
+				"order" : 71,
+				"text" : "Sound",
+				"type" : "bool",
+				"value" : false
+			},
+			"audio_volume" : 
+			{
+				"condition" : "audio_enabled.value == true",
+				"fraction" : true,
+				"max" : 1,
+				"min" : 0,
+				"order" : 72,
+				"precision" : 2,
+				"step" : 0.05,
+				"text" : "Volume",
+				"type" : "slider",
+				"value" : 1
+			},
+			"blend_shift" : 
+			{
+				"order" : 70,
+				"text" : "Blend Shift",
+				"type" : "bool",
+				"value" : true
+			},
+			"calendar_mode" : 
+			{
+				"condition" : "random_mode.value == false",
+				"order" : 107,
+				"text" : "Calendar Mode",
+				"type" : "bool",
+				"value" : false
+			},
+			"fps" : 
+			{
+				"fraction" : false,
+				"max" : 60,
+				"min" : 5,
+				"order" : 101,
+				"precision" : 0,
+				"step" : 1,
+				"text" : "FPS",
+				"type" : "slider",
+				"value" : 30
+			},
+			"random_delay" : 
+			{
+				"condition" : "random_mode.value == true && calendar_mode.value == false",
+				"fraction" : true,
+				"max" : 60,
+				"min" : 0.5,
+				"order" : 106,
+				"precision" : 1,
+				"step" : 0.5,
+				"text" : "Switch scene (minutes)",
+				"type" : "slider",
+				"value" : 5
+			},
+			"random_mode" : 
+			{
+				"condition" : "calendar_mode.value == false",
+				"order" : 105,
+				"text" : "Random Mode",
+				"type" : "bool",
+				"value" : false
+			},
+			"sceneselect" : 
+			{
+				"condition" : "calendar_mode.value == false && random_mode.value == false",
+				"options" : 
+				[
+					{
+						"label" : "January - Winter Forest - Clear",
+						"value" : "0"
+					},
+					{
+						"label" : "January - Winter Forest - Snow",
+						"value" : "1"
+					},
+					{
+						"label" : "February - Mountain Stream - Clear",
+						"value" : "2"
+					},
+					{
+						"label" : "February - Mountain Stream - Cloudy",
+						"value" : "3"
+					},
+					{
+						"label" : "March - Monolith Plains - Clear",
+						"value" : "4"
+					},
+					{
+						"label" : "April - Deep Forest - Clear",
+						"value" : "5"
+					},
+					{
+						"label" : "April - Deep Forest - Rain",
+						"value" : "6"
+					},
+					{
+						"label" : "May - Jungle Waterfall - Clear",
+						"value" : "7"
+					},
+					{
+						"label" : "May - Jungle Waterfall - Cloudy",
+						"value" : "8"
+					},
+					{
+						"label" : "May - Jungle Waterfall - Rain",
+						"value" : "9"
+					},
+					{
+						"label" : "June - Crystal Caves - Clear",
+						"value" : "10"
+					},
+					{
+						"label" : "July - Desert - Clear",
+						"value" : "11"
+					},
+					{
+						"label" : "July - Desert - Cloudy",
+						"value" : "12"
+					},
+					{
+						"label" : "August - Aquarius - Clear",
+						"value" : "13"
+					},
+					{
+						"label" : "September - Seascape - Clear",
+						"value" : "14"
+					},
+					{
+						"label" : "September - Seascape - Cloudy",
+						"value" : "15"
+					},
+					{
+						"label" : "Early October - Haunted Ruins - Clear",
+						"value" : "16"
+					},
+					{
+						"label" : "Late October - Haunted Ruins - Clear",
+						"value" : "17"
+					},
+					{
+						"label" : "Late October - Haunted Ruins - Rain",
+						"value" : "18"
+					},
+					{
+						"label" : "November - Mirror Pond - Clear",
+						"value" : "19"
+					},
+					{
+						"label" : "November - Mirror Pond - Rain",
+						"value" : "20"
+					},
+					{
+						"label" : "December - Winter Manor - Clear",
+						"value" : "21"
+					}
+				],
+				"order" : 108,
+				"text" : "Scene select",
+				"type" : "combo",
+				"value" : "0"
+			},
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			},
+			"speed" : 
+			{
+				"fraction" : true,
+				"max" : 4,
+				"min" : 0,
+				"order" : 100,
+				"precision" : 2,
+				"step" : 0.1,
+				"text" : "Speed",
+				"type" : "slider",
+				"value" : 1
+			},
+			"stretch" : 
+			{
+				"options" : 
+				[
+					{
+						"label" : "Stretch",
+						"value" : "height: 100vh; width: 100vw"
+					},
+					{
+						"label" : "Horizontal",
+						"value" : "width: 100vw"
+					},
+					{
+						"label" : "Vertical",
+						"value" : "height: 100vh"
+					},
+					{
+						"label" : "None",
+						"value" : ""
+					}
+				],
+				"order" : 65,
+				"text" : "Fit to Screen",
+				"type" : "combo",
+				"value" : "height: 100vh; width: 100vw"
+			},
+			"sync_time" : 
+			{
+				"order" : 102,
+				"text" : "Sync time",
+				"type" : "bool",
+				"value" : true
+			},
+			"time" : 
+			{
+				"condition" : "sync_time.value == false",
+				"fraction" : false,
+				"max" : 24,
+				"min" : 1,
+				"order" : 104,
+				"precision" : 0,
+				"step" : 1,
+				"text" : "Time",
+				"type" : "slider",
+				"value" : 12
+			},
+			"time_mult" : 
+			{
+				"condition" : "sync_time.value == true",
+				"fraction" : false,
+				"max" : 480,
+				"min" : 1,
+				"order" : 103,
+				"precision" : 0,
+				"step" : 1,
+				"text" : "Time Multiplier",
+				"type" : "slider",
+				"value" : 1
+			}
+		}
+	},
+	"preview" : "preview.gif",
+	"tags" : [ "Pixel art" ],
+	"title" : "Living Worlds - Animated Web Wallpaper",
+	"type" : "Web",
+	"version" : 9,
+	"visibility" : "public",
+	"workshopid" : "2119347960",
+	"workshopurl" : "steam://url/CommunityFilePage/2119347960"
+}

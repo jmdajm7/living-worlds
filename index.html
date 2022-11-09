@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Living Worlds in HTML5</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Joseph Huckaby">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<!-- Date: 2010-07-17 -->
+	<link rel="stylesheet" type="text/css" href="style.css" >
+	
+	<script type="text/javascript" src="images/V26janclr.js"></script>
+	<script type="text/javascript" src="images/V26SNOWjansnow.js"></script>
+	<script type="text/javascript" src="images/V19febclr.js"></script>
+	<script type="text/javascript" src="images/V19febcldy.js"></script>
+	<script type="text/javascript" src="images/V30aprclr.js"></script>
+	<script type="text/javascript" src="images/V30RAINaprrain.js"></script>
+	<script type="text/javascript" src="images/V08mayclr.js"></script>
+	<script type="text/javascript" src="images/V08maycldy.js"></script>
+	<script type="text/javascript" src="images/V08RAINmayrain.js"></script>
+	<script type="text/javascript" src="images/V20JOEjunday.js"></script>
+	<script type="text/javascript" src="images/V25julyclr.js"></script>
+	<script type="text/javascript" src="images/V25julycldy.js"></script>
+	<script type="text/javascript" src="images/CORAL.js"></script>
+	<script type="text/javascript" src="images/V29septclr.js"></script>
+	<script type="text/javascript" src="images/V29septcldy.js"></script>
+	<script type="text/javascript" src="images/V05AMoctbegclr.js"></script>
+	<script type="text/javascript" src="images/V05octendclr.js"></script>
+	<script type="text/javascript" src="images/V05RAINoctrain.js"></script>
+	<script type="text/javascript" src="images/V16novclr.js"></script>
+	<script type="text/javascript" src="images/V16RAINnovrain.js"></script>
+	<script type="text/javascript" src="images/V12BASICdecclr.js"></script>
+	<script type="text/javascript" src="images/VW3BASIC.js"></script>
+	<script type="text/javascript" src="oop.js"></script>
+	<script type="text/javascript" src="tools.js"></script>
+	<script type="text/javascript" src="cookie.js"></script>
+	<script type="text/javascript" src="palette.js"></script>
+	<script type="text/javascript" src="bitmap.js"></script>
+	<script type="text/javascript" src="scenes.js"></script>
+	<script type="text/javascript" src="tween.js"></script>
+	<script type="text/javascript" src="framecount.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	
+	    <script>
+        $(function () {
+            var img = new Image();
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+            };
+            img.src =
+                "http://images.christmastimeclipart.com/images/2/1271716593176_1788/img_1271716593176_17881.jpg";
+
+            var canvas = document.getElementById("mycanvas");
+            var ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            /*var canvasWidth=canvas.width;
+            var canvasHeight=canvas.height;*/
+
+            var isDragging = false;
+
+            // functions to handle mouseup, mousedown, mousemove, mouseout events
+
+            $("#canvas").mousedown(function (e) {
+                handleMouseDown(e);
+            });
+            $("#canvas").mousemove(function (e) {
+                handleMouseMove(e);
+            });
+            $("#canvas").mouseup(function (e) {
+                handleMouseUp(e);
+            });
+            $("#canvas").mouseout(function (e) {
+                handleMouseOut(e);
+            });
+
+        }); // end $(function(){});
+    </script>
+	
+</head>
+<body>
+	<div id="container">
+		<div id="d_loading"></div>
+		<canvas id="mycanvas" width="640" height="480" style="height: 100vh; width: 100vw"></canvas>
+		<!-- <div class="canvas-bg-fade" style="height: 100vh; width: 100vw"></div> -->
+	</div>
+
+	
+	<script language="JavaScript">
+		if (document.addEventListener) {
+			// Good browsers
+			document.addEventListener( "DOMContentLoaded", function() {
+				document.removeEventListener( "DOMContentLoaded", arguments.callee, false );
+				CC.init();
+			}, false );
+
+			// Just in case
+			window.addEventListener( "load", function() {
+				window.removeEventListener( "load", arguments.callee, false );
+				CC.init();
+			}, false );
+		}
+		else if (window.attachEvent) {
+			// Bad browsers have to wait
+			/* window.attachEvent("onload", function() {
+				setTimeout( function() { CC.init(); }, 1000 );
+			});
+			
+			window.attachEvent("onresize", function() {
+				CC.handleResize();
+			}); */
+			
+			// chrome frame
+			// CFInstall.check({ mode: "overlay" });
+		}
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 5:20:57 Mar 26, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:19:49 Aug 21, 2016.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
