@@ -121,6 +121,13 @@ window.wallpaperPropertyListener = {
 			
 			CC.timeMult = properties.time_mult.value;
 		}
+
+		// SCENE TRANSITION FADE
+		if (properties.transition_fade) {
+			console.log("transition_fade: " + properties.transition_fade.value);
+
+			CC.settings.transitionFade = properties.transition_fade.value;
+		}
 		
 		///////////
 		// MODES //
@@ -235,7 +242,8 @@ var CanvasCycle = {
 	settings: {
 		targetFPS: 60,
 		frameDelay: Math.floor(1000/this.targetFPS),
-		speedAdjust: 1.0
+		speedAdjust: 1.0,
+		transitionFade: false
 	},
 
 	contentSize: {
@@ -310,21 +318,34 @@ var CanvasCycle = {
 		// switch to new scene (grab menu selection)
 		this.sceneIdx = newSceneIdx;
 		
-		TweenManager.removeAll({ category: 'scenefade' });
-		TweenManager.tween({
-			target: { value: this.globalBrightness, newSceneIdx: this.sceneIdx },
-			duration: Math.floor( this.settings.targetFPS / 2 ),
-			mode: 'EaseInOut',
-			algo: 'Quadratic',
-			props: { value: 0.0 },
-			onTweenUpdate: function(tween) {
-				CanvasCycle.globalBrightness = tween.target.value;
-			},
-			onTweenComplete: function(tween) {
-				CanvasCycle.loadScene( tween.target.newSceneIdx );
-			},
-			category: 'scenefade'
-		});
+		if (ua.mobile || !this.settings.transitionFade) {
+			// no transitions on mobile devices, just switch as fast as possible
+			this.inGame = false;
+
+			this.ctx.clearRect(0, 0, this.bmp.width, this.bmp.height);
+			this.ctx.fillStyle = "rgb(0,0,0)";
+			this.ctx.fillRect(0, 0, this.bmp.width, this.bmp.height);
+
+			CanvasCycle.globalBrightness = 1.0;
+			CanvasCycle.loadScene(this.sceneIdx);
+		}
+		else {
+			TweenManager.removeAll({ category: 'scenefade' });
+			TweenManager.tween({
+				target: { value: this.globalBrightness, newSceneIdx: this.sceneIdx },
+				duration: Math.floor( this.settings.targetFPS / 2 ),
+				mode: 'EaseInOut',
+				algo: 'Quadratic',
+				props: { value: 0.0 },
+				onTweenUpdate: function(tween) {
+					CanvasCycle.globalBrightness = tween.target.value;
+				},
+				onTweenComplete: function(tween) {
+					CanvasCycle.loadScene( tween.target.newSceneIdx );
+				},
+				category: 'scenefade'
+			});
+		}
 	},
 
 	findSceneByMonth: function() {
@@ -497,20 +518,25 @@ var CanvasCycle = {
 		}
 		this.bmp.clear( this.imageData );
 		
-
-		this.globalBrightness = 0.0;
-		TweenManager.removeAll({ category: 'scenefade' });
-		TweenManager.tween({
-			target: { value: 0 },
-			duration: Math.floor( this.settings.targetFPS / 2 ),
-			mode: 'EaseInOut',
-			algo: 'Quadratic',
-			props: { value: 1.0 },
-			onTweenUpdate: function(tween) {
-				CanvasCycle.globalBrightness = tween.target.value;
-			},
-			category: 'scenefade'
-		});
+		if (ua.mobile || !this.settings.transitionFade) {
+			// no transition on mobile devices
+			this.globalBrightness = 1.0;
+		}
+		else {
+			this.globalBrightness = 0.0;
+			TweenManager.removeAll({ category: 'scenefade' });
+			TweenManager.tween({
+				target: { value: 0 },
+				duration: Math.floor( this.settings.targetFPS / 2 ),
+				mode: 'EaseInOut',
+				algo: 'Quadratic',
+				props: { value: 1.0 },
+				onTweenUpdate: function(tween) {
+					CanvasCycle.globalBrightness = tween.target.value;
+				},
+				category: 'scenefade'
+			});
+		}
 		
 		this.hideLoading();
 		this.run();

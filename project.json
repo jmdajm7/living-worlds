@@ -250,6 +250,12 @@
 				"text" : "Time Multiplier",
 				"type" : "slider",
 				"value" : 1
+			},
+			"transition_fade": {
+				"order": 100,
+				"text": "Scene transition fade",
+				"type": "bool",
+				"value": true
 			}
 		}
 	},
