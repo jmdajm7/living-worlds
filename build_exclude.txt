@@ -1,4 +1,5 @@
 .git
+.gitignore
 build.bat
 build_exclude.txt
 .LBM.json
