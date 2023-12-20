@@ -251,19 +251,22 @@
 				"type" : "slider",
 				"value" : 1
 			},
-			"transition_fade": {
-				"order": 100,
-				"text": "Scene transition fade",
-				"type": "bool",
-				"value": true
+			"transition_fade" : 
+			{
+				"order" : 100,
+				"text" : "Scene transition fade",
+				"type" : "bool",
+				"value" : true
 			}
 		}
 	},
 	"preview" : "preview.gif",
+	"ratingsex" : "none",
+	"ratingviolence" : "none",
 	"tags" : [ "Pixel art" ],
 	"title" : "Living Worlds - Animated Web Wallpaper",
 	"type" : "web",
-	"version" : 9,
+	"version" : 10,
 	"visibility" : "public",
 	"workshopid" : "2119347960",
 	"workshopurl" : "steam://url/CommunityFilePage/2119347960"
