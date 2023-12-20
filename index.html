@@ -41,51 +41,12 @@
 	<script type="text/javascript" src="tween.js"></script>
 	<script type="text/javascript" src="framecount.js"></script>
 	<script type="text/javascript" src="main.js"></script>
-	
-	    <script>
-        $(function () {
-            var img = new Image();
-            img.onload = function () {
-                ctx.drawImage(img, 0, 0);
-            };
-            img.src =
-                "http://images.christmastimeclipart.com/images/2/1271716593176_1788/img_1271716593176_17881.jpg";
-
-            var canvas = document.getElementById("mycanvas");
-            var ctx = canvas.getContext("2d");
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            /*var canvasWidth=canvas.width;
-            var canvasHeight=canvas.height;*/
-
-            var isDragging = false;
-
-            // functions to handle mouseup, mousedown, mousemove, mouseout events
-
-            $("#canvas").mousedown(function (e) {
-                handleMouseDown(e);
-            });
-            $("#canvas").mousemove(function (e) {
-                handleMouseMove(e);
-            });
-            $("#canvas").mouseup(function (e) {
-                handleMouseUp(e);
-            });
-            $("#canvas").mouseout(function (e) {
-                handleMouseOut(e);
-            });
-
-        }); // end $(function(){});
-    </script>
-	
 </head>
 <body>
+	<!-- center canvas -->
 	<div id="container">
 		<div id="d_loading"></div>
-		<canvas id="mycanvas" width="640" height="480" style="height: 100vh; width: 100vw"></canvas>
-		<!-- <div class="canvas-bg-fade" style="height: 100vh; width: 100vw"></div> -->
+		<canvas id="mycanvas" width="640" height="480"></canvas>
 	</div>
 
 	
@@ -102,19 +63,10 @@
 				window.removeEventListener( "load", arguments.callee, false );
 				CC.init();
 			}, false );
-		}
-		else if (window.attachEvent) {
-			// Bad browsers have to wait
-			/* window.attachEvent("onload", function() {
-				setTimeout( function() { CC.init(); }, 1000 );
-			});
-			
-			window.attachEvent("onresize", function() {
+
+			window.addEventListener("resize", function () {
 				CC.handleResize();
-			}); */
-			
-			// chrome frame
-			// CFInstall.check({ mode: "overlay" });
+			}, false);
 		}
 	</script>
 	

@@ -1,6 +1,6 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "Various animated pixel art wallpapers created by Mark Ferrari, based on http://www.effectgames.com/demos/worlds/\r\n\r\nThis is a modified version of https://steamcommunity.com/sharedfiles/filedetails/?id=2106625278\r\nwith a few changes and added features.\r\n\r\nFeatures:\r\n- Wallpaper scales to screen resolution\r\n- The light in the environment changes based on time of day\r\n- Time can be accelerated to cycle through day/night faster\r\n- Time can be set to a fixed hour\r\n- Wallpaper can change based on current month\r\n- Wallpaper can change randomly base on a set interval\r\n- Choose a fixed wallpaper to display\r\n- Set the FPS limit to keep performance impact low\r\n- Change the speed of the animations\r\n- Optional audio loops with adjustable volume\r\n- Switch between smooth or classic color blending",
+	"description" : "Various animated pixel art wallpapers created by Mark Ferrari, based on http://www.effectgames.com/demos/worlds/\r\n\r\nThe scenes in this wallpaper use color palette cycling to achieve smooth looping animations, meaning there are no videos used so it can scale nicely to high resolutions while still maintaining the sharp pixel art look.\r\n\r\nThis is a modified version of https://steamcommunity.com/sharedfiles/filedetails/?id=2106625278\r\nwith a few changes and added features.\r\n\r\nFeatures:\r\n- Wallpaper scales to screen resolution\r\n- The light in the environment changes based on time of day\r\n- Time can be accelerated to cycle through day/night faster\r\n- Time can be set to a fixed hour\r\n- Wallpaper can change based on current month\r\n- Wallpaper can change randomly base on a set interval\r\n- Choose a fixed wallpaper to display\r\n- Set the FPS limit to keep performance impact low\r\n- Change the speed of the animations\r\n- Optional audio loops with adjustable volume\r\n- Switch between smooth or classic color blending\r\n\r\n\r\nI have also created a wallpaper based on the Canvas Cycle scenes:\r\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=2888304954",
 	"file" : "index.html",
 	"general" : 
 	{
@@ -198,25 +198,25 @@
 				[
 					{
 						"label" : "Stretch",
-						"value" : "height: 100vh; width: 100vw"
+						"value" : "fill"
 					},
 					{
 						"label" : "Horizontal",
-						"value" : "width: 100vw"
+						"value" : "horizontal"
 					},
 					{
 						"label" : "Vertical",
-						"value" : "height: 100vh"
+						"value" : "vertical"
 					},
 					{
 						"label" : "None",
-						"value" : ""
+						"value" : "none"
 					}
 				],
 				"order" : 65,
 				"text" : "Fit to Screen",
 				"type" : "combo",
-				"value" : "height: 100vh; width: 100vw"
+				"value" : "fill"
 			},
 			"sync_time" : 
 			{
@@ -256,7 +256,7 @@
 	"preview" : "preview.gif",
 	"tags" : [ "Pixel art" ],
 	"title" : "Living Worlds - Animated Web Wallpaper",
-	"type" : "Web",
+	"type" : "web",
 	"version" : 9,
 	"visibility" : "public",
 	"workshopid" : "2119347960",

@@ -1,8 +1,3 @@
-
-
-
-
-
 /*
      FILE ARCHIVED ON 8:58:14 May 30, 2016 AND RETRIEVED FROM THE
      INTERNET ARCHIVE ON 15:51:22 Aug 21, 2016.
@@ -52,7 +47,8 @@ window.wallpaperPropertyListener = {
 		if (properties.stretch) {
 			console.log("stretch: " + properties.stretch.value);
 
-			document.getElementById("mycanvas").style = properties.stretch.value;
+			CC.stretch = properties.stretch.value;
+			CC.handleResize();
 		}
 		
 		// SOUND
@@ -133,8 +129,8 @@ window.wallpaperPropertyListener = {
 		
 			if (properties.random_mode.value) {
 				randomEnabled = true;
-				CC.switchScene(Math.floor(Math.random() * 21));
-				intervalID = setInterval(function(){ CC.switchScene(Math.floor(Math.random() * 22)); }, randomDelay * 1000 * 60)
+				CC.switchScene(Math.floor(Math.random() * 22));
+				intervalID = setInterval(function() { CC.switchScene(Math.floor(Math.random() * 22)); }, randomDelay * 1000 * 60)
 			}
 			else
 			{
@@ -660,6 +656,36 @@ var CanvasCycle = {
 		
 		// finally, copy the final colors back to the bitmap palette for cycling and rendering
 		this.bmp.palette.importColors( this.todPalette.colors );
+	},
+
+
+	handleResize: function () {
+		// custom scale logic
+		var canvas = document.getElementById('mycanvas');
+		var ratio = 640 / 480;
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+
+		if (this.stretch === 'horizontal') {
+			// set the width of the canvas to match the height (multiplied by the ratio)
+			canvas.style.height = width / ratio + 'px';
+			canvas.style.width = width + 'px';
+		}
+		else if (this.stretch === 'vertical') {
+			// set the height of the canvas to match the width (divided by the ratio)
+			canvas.style.width = height * ratio + 'px';
+			canvas.style.height = height + 'px';
+		}
+		else if (this.stretch === 'fill') {
+			// et the canvas to the window size
+			canvas.style.width = width + 'px';
+			canvas.style.height = height + 'px';
+		}
+		else {
+			// default resolution
+			canvas.style.width = '640px';
+			canvas.style.height = '480px';
+		}
 	},
 
 	saveSettings: function() {

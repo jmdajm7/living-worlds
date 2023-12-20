@@ -12,6 +12,17 @@ body {
 	width: 2048px;
 }
 
+body,
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 a {
 	color: #888;
 	text-decoration: none;
@@ -71,11 +82,11 @@ div.clear {
 }
 
 #mycanvas {
-	/*! float: left; */
+	float: left;
 	z-index: 2;
 
-	position: absolute;
-  /* Firefox */
+/* 	position: absolute;
+ */  /* Firefox */
 	/*image-rendering: crisp-edges;*/
 	/* Chromium + Safari */
 	image-rendering: pixelated;
