@@ -17,6 +17,19 @@ var intervalID, selectedTime, selectedScene, randomEnabled, randomDelay;
 
 window.wallpaperPropertyListener = {
 	applyUserProperties: function (properties) {
+		// BACKGROUND
+		if (properties.schemecolor) {
+			// Convert the schemecolor to 0 - 255 range for CSS usage
+			var customColor = properties.schemecolor.value.split(' ');
+			customColor = customColor.map(function (c) {
+				return Math.ceil(c * 255);
+			});
+			var customColorAsCSS = 'rgb(' + customColor + ')';
+
+			console.log("schemecolor: " + customColorAsCSS);
+			document.body.style.backgroundColor = customColorAsCSS;
+		}
+
 		// SPEED
 		if (properties.speed) {
 			console.log("speed: " + properties.speed.value);
