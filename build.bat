@@ -1,0 +1,1 @@
+xcopy /s /r /y /exclude:build_exclude.txt ".\" "..\living_worlds_wp"
