@@ -4,7 +4,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2119347960
 
 ---
 
-This is a port of the 'Living Worlds' animated pixel art images, originally created by Mark Ferrari, to a Wallpaper Engine web wallpaper.
+This is a port of the 'Living Worlds' animated pixel art images, originally created by [Mark Ferrari](https://www.markferrari.com/), to a Wallpaper Engine web wallpaper.
 
 Specifically it is based on the HTML5 color cycling implementation by Joseph Huckaby, which can be found here: http://www.effectgames.com/demos/worlds/
 
