@@ -1,41 +1,22 @@
-These amazing images were created by Mark Ferrari(http://markferrari.com/) and the code was created by Joe Huckaby. All I did was scrape the code and images from The Wayback Machine.
+## Living Worlds - Wallpaper Engine Web Wallpaper
+
+https://steamcommunity.com/sharedfiles/filedetails/?id=2119347960
+
+---
+
+This is a port of the 'Living Worlds' animated pixel art images, originally created by Mark Ferrari, to a Wallpaper Engine web wallpaper.
+
+Specifically it is based on the HTML5 color cycling implementation by Joseph Huckaby, which can be found here: http://www.effectgames.com/demos/worlds/
 
 You can learn more about the long history of this work of art here:
+- https://web.archive.org/web/20160414062925/http://www.iangilman.com/software/seizetheday.php
+- https://web.archive.org/web/20160419082955/http://www.effectgames.com/effect/article.psp.html/joe/Old_School_Color_Cycling_with_HTML5
 
-https://web.archive.org/web/20160414062925/http://www.iangilman.com/software/seizetheday.php
+---
+### Development
 
-and here:
+All the Wallpaper Engine relevant code is in the `main.js` file. The properties are handled at the top, the rest is hacked into various places in the original code. 
 
-https://web.archive.org/web/20160419082955/http://www.effectgames.com/effect/article.psp.html/joe/Old_School_Color_Cycling_with_HTML5
+The git repository was created after the initial implementation, so to get all the actual changes you would have to diff against the code from the effectgames website above.
 
-How to use:
-
-Download the code and open index.html in Chrome, Firefox, or any browser that supports HTML5. I find Firefox is the best to run it on.
-
-How to use with Raspberry pi 3:
-
-1) Set up your raspberry pi and 7 inch touch screen
-
-2) Install raspbian(this comes with the pi as the "NOOBS OS" if you buy the bundle)
-
-3) Install Firefox(Ice weasel)
-
-Next turn off screen sleeping
-
-4) Open the terminal and run: "sudo leafpad etc/lightdm/lightdm.conf"
-
-5) Under the "[SetDefaults]" section, find "#xserver-command=X"
-
-6) Remove the "#"
-
-7) Change the setting to "xserver-command=X -s 0 -dpms"
-
-8) Save and reboot
-
-9) Transfer the code to the Raspberry Pi
-
-10) Right click on index.html and run with Firefox
-
-11) Turn Firefox into full screen mode and adjust the zoom so that the art fills the top and bottom of the screen.
-
-12) Enjoy
+The `build.bat` and `build_exclude.txt` are used to just copy only the required files to another folder, so that the actual Steam Workshop size is smaller.
